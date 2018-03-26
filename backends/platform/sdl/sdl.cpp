@@ -748,6 +748,42 @@ int SDL_SetColors(SDL_Surface *surface, SDL_Color *colors, int firstcolor, int n
 	}
 }
 
+
+/*#include <windows.h> Necessary header
+#include <windows.h>
+
+SDL_SetClipboardText(){
+	
+	CString source; 
+	//put your text in source
+	if(OpenClipboard())
+	{
+		HGLOBAL clipbuffer;
+		char * buffer;
+		EmptyClipboard();
+		clipbuffer = GlobalAlloc(GMEM_DDESHARE, source.GetLength()+1);
+		buffer = (char*)GlobalLock(clipbuffer);
+		strcpy(buffer, LPCSTR(source));
+		GlobalUnlock(clipbuffer);
+		SetClipboardData(CF_TEXT,clipbuffer);
+		CloseClipboard();
+	}
+	
+	char * buffer;
+	if(OpenClipboard())
+	{
+		
+		buffer = (char*)GetClipboardData(CF_TEXT);
+		//do something with buffer here 
+		//before it goes out of scope
+		
+	}
+	CloseClipboard(); 	
+	
+	
+} */
+
+
 int SDL_SetAlpha(SDL_Surface *surface, Uint32 flag, Uint8 alpha) {
 	if (SDL_SetSurfaceAlphaMod(surface, alpha)) {
 		return -1;
