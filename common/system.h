@@ -193,6 +193,8 @@ protected:
 	//@}
 
 public:
+	
+	setTextInClipboard(const Common::String&);
 
 	/**
 	 * The following method is called once, from main.cpp, after all
